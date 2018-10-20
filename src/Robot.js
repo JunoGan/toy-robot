@@ -8,6 +8,19 @@ class Robot {
     this.curDirection = null
   }
 
+  execute(commands) {
+    let robot = this;
+    for (let i = 0; i < commands.length; i++) {
+      let command = commands[i]
+      if (command.args) {
+        robot = this[command.command](command.args[0], command.args[1], command.args[2])
+      } else {
+        robot = this[command.command]()
+      }
+    }
+    return robot
+  }
+
   place(x, y, direction) {
     //check if the position is out of table
     if (x > tableSize.x || y > tableSize.y) {
@@ -72,7 +85,7 @@ class Robot {
     if (!this.isPlaced) {
       return this;
     }
-    console.log('Roport' + ' ' + [this.position.x, this.position.y, this.curDirection.toUpperCase()].join(','))
+    console.log('Expected Output: ' + [this.position.x, this.position.y, this.curDirection.toUpperCase()].join(','))
   }
 }
 

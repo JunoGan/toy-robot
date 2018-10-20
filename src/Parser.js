@@ -13,7 +13,7 @@ class Parser{
     if(!data.length) {
       return callback(new Error('Content must not empty'), null)
     }
-    console.log('Commands: ')
+    console.log('Input Commands: ')
     
     const parsedCommands = data.split('\n').map((command) => {
       console.log(`${command}`)
