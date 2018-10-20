@@ -66,12 +66,12 @@ class Parser{
       case 'left':
         return {
           command: 'turn',
-          args: 'left'
+          args: ['left']
         };
       case 'right':
         return {
           command: 'turn',
-          args: 'right'
+          args: ['right']
         };
       case 'report':
         return {

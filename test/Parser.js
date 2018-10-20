@@ -20,10 +20,10 @@ describe('Parser', () => {
           command: 'move',
         }, {
           command: 'turn',
-          args: 'right'
+          args: ['right']
         }, {
           command: 'turn',
-          args: 'right'
+          args: ['right']
         }, {
           command: 'report'
         }
@@ -32,15 +32,18 @@ describe('Parser', () => {
   })
 
   it('should skip the command which is invalid', () => {
-    parser.parse('PLACE,1,1,WEST\nMOVE\nREPORT\nJUMP\nPLACE 1,2,NORTH', (err, parsedCommands) => {
+    parser.parse('PLACE,1,2,NORTH\nPLACE 1,2,NORTH\nSKIP\nMOVE\nLEFT\nMOVE', (err, parsedCommands) => {
       expect(parsedCommands).to.deep.equal([
         {
-          command: 'move'
-        }, {
-          command: 'report'
-        }, {
           command: 'place',
           args: [1, 2, 'north']
+        }, {
+          command: 'move'
+        },{
+          command: 'turn',
+          args: ['left']
+        }, {
+          command: 'move'
         }
       ])
     })

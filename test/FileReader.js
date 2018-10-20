@@ -20,7 +20,7 @@ describe('FileReader', () => {
   it('should read commands correctly', () => {
     fileReader.read(path.join(__dirname, 'data/command1.txt'), (err, data) => {
       expect(err).to.be.null
-      expect(data).to.equal('PLACE 0,0,NORTH\nMOVE\nREPORT');
+      expect(data).to.equal('PLACE 1,2,EAST\nMOVE\nMOVE\nLEFT\nMOVE\nREPORT');
     })
   })
 

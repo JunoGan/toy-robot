@@ -24,7 +24,6 @@ class Robot {
   place(x, y, direction) {
     //check if the position is out of table
     if (x > tableSize.x || y > tableSize.y) {
-      // console.log('The table size is 5x5, make sure you place on right position')
       this.isPlaced = false
       return this
     }
@@ -46,22 +45,22 @@ class Robot {
     switch (this.curDirection) {
       case 'north':
       if (++ y < tableSize.y) {
-        this.position = {x: x, y: y}
+        this.position = { x: x, y: y }
       }
       break;
     case 'east':
       if (++ x < tableSize.x) {
-        this.position = {x: x, y: y}
+        this.position = { x: x, y: y }
       }
       break;
     case 'south':
       if (-- y >= 0) {
-        this.position = {x: x, y: y};
+        this.position = { x: x, y: y };
       }
       break;
     case 'west':
       if (-- x >= 0) {
-        this.position = {x: x, y: y}
+        this.position = { x: x, y: y }
       }
       break;
     default:
@@ -85,7 +84,7 @@ class Robot {
     if (!this.isPlaced) {
       return this;
     }
-    console.log('Expected Output: ' + [this.position.x, this.position.y, this.curDirection.toUpperCase()].join(','))
+    console.log('\nExpected Output: ' + [this.position.x, this.position.y, this.curDirection.toUpperCase()].join(','))
   }
 }
 
